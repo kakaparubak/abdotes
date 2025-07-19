@@ -4,3 +4,14 @@ import { twMerge } from "tailwind-merge"
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
+
+export const handleError = (error: unknown) => {
+  if (error instanceof Error) {
+    return { errorMessage: error.message };
+  } else if (typeof error === "string") {
+    return { errorMessage: error };
+  } else {
+    console.error("Unexpected error type:", error);
+    return { errorMessage: "An unexpected error occurred." };
+  }
+}

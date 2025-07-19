@@ -4,9 +4,10 @@ import { IoMusicalNoteSharp } from "react-icons/io5";
 import { Button } from "./ui/button";
 import { ModeToggle } from "./DarkModeToggle";
 import LogOutButton from "./LogOutButton";
+import { getUser } from "@/auth/server";
 
-const Header = () => {
-  const user = null;
+const Header = async () => {
+  const user = await getUser();
 
   return (
     <header className="w-full flex justify-between items-center">
